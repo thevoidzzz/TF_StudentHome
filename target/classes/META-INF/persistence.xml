@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="StudentHomePU" transaction-type="JTA">
+	<jta-data-source>java:/StudentHomeDS</jta-data-source>
+	<class>pe.edu.upc.StudentHome.models.entities.Apartment</class>
+	<class>pe.edu.upc.StudentHome.models.entities.District</class>
+	<class>pe.edu.upc.StudentHome.models.entities.Lessor</class>
+	<class>pe.edu.upc.StudentHome.models.entities.PaymentProof</class>
+	<class>pe.edu.upc.StudentHome.models.entities.Province</class>
+	<class>pe.edu.upc.StudentHome.models.entities.Region</class>
+	<class>pe.edu.upc.StudentHome.models.entities.Reservation</class>
+	<class>pe.edu.upc.StudentHome.models.entities.Student</class>
+	<class>pe.edu.upc.StudentHome.models.entities.Subscription</class>
+	<class>pe.edu.upc.StudentHome.models.entities.User</class>
+	<exclude-unlisted-classes>false</exclude-unlisted-classes>
+	<properties>
+		<property name="javax.persistence.schema-generation.database.action"
+					value="drop-and-create"/> 
+	</properties>
+	</persistence-unit>
+</persistence>
