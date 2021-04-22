@@ -1,5 +1,6 @@
 package pe.edu.upc.StudentHome.models.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,15 +13,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Apartments")
+@SequenceGenerator(name = "getApartment", initialValue = 1)
 public class Apartment {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "getApartment")
 	@Column(name = "apartment_id", columnDefinition = "NUMERIC(4)")
 	private Integer id;
 	
@@ -44,5 +47,68 @@ public class Apartment {
 	
 	@OneToMany(mappedBy = "apartment", fetch = FetchType.LAZY)
 	private List<Reservation> reservations;	
+	
+	// --Constructor, Getter y Setter  
+		public Apartment() {
+			reservations = new ArrayList<Reservation>();
+		}
+
+		public Integer getId() {
+			return id;
+		}
+
+		public void setId(Integer id) {
+			this.id = id;
+		}
+
+		public String getDescription() {
+			return description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public Float getPrice() {
+			return price;
+		}
+
+		public void setPrice(Float price) {
+			this.price = price;
+		}
+
+		public Date getInitialDatePublication() {
+			return initialDatePublication;
+		}
+
+		public void setInitialDatePublication(Date initialDatePublication) {
+			this.initialDatePublication = initialDatePublication;
+		}
+
+		public District getDistrict() {
+			return district;
+		}
+
+		public void setDistrict(District district) {
+			this.district = district;
+		}
+
+		public Lessor getLessor() {
+			return lessor;
+		}
+
+		public void setLessor(Lessor lessor) {
+			this.lessor = lessor;
+		}
+
+		public List<Reservation> getReservations() {
+			return reservations;
+		}
+
+		public void setReservations(List<Reservation> reservations) {
+			this.reservations = reservations;
+		}
+		
+		
 	
 }

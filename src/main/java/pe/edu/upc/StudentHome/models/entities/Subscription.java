@@ -1,5 +1,6 @@
 package pe.edu.upc.StudentHome.models.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,13 +10,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Subscriptions")
+@SequenceGenerator(name = "getSubscription", initialValue = 1)
 public class Subscription {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "getSubscription")
 	@Column(name = "subscription_id", columnDefinition = "NUMERIC(4)")
 	private Integer id;
 	
@@ -27,4 +30,44 @@ public class Subscription {
 	
 	@ManyToMany(mappedBy = "subscriptions", fetch = FetchType.LAZY)
 	private List<User> users;
+	
+	// --Constructor, Getter y Setter  
+	
+	public Subscription() {
+		users = new ArrayList<User>();
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getSubscriptionName() {
+		return subscriptionName;
+	}
+
+	public void setSubscriptionName(String subscriptionName) {
+		this.subscriptionName = subscriptionName;
+	}
+
+	public String getSubscriptionDescription() {
+		return subscriptionDescription;
+	}
+
+	public void setSubscriptionDescription(String subscriptionDescription) {
+		this.subscriptionDescription = subscriptionDescription;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	
+	
 }
