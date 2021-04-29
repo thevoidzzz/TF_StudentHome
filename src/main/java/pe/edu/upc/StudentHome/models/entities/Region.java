@@ -26,7 +26,7 @@ public class Region {
 	private String name;
 	
 	@OneToMany(mappedBy = "region", fetch = FetchType.LAZY)
-	private List<Province> provinces;
+	private List<Province> provinces;	
 	
 	// --Constructor, Getter y Setter  
 		public Region() {
