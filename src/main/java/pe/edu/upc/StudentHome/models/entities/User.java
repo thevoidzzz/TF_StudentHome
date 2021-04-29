@@ -62,12 +62,12 @@ public class User {
 	
 	@OneToOne
 	@MapsId
-	@JoinColumn(name = "lessor_id")
+	@JoinColumn(name = "id")
 	private Lessor lessor;
 	
 	@OneToOne
 	@MapsId
-	@JoinColumn(name = "student_id")
+	@JoinColumn(name = "id")
 	private Student student;
 	
 	// --Constructor, Getter y Setter  

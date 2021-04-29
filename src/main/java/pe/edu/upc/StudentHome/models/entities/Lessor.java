@@ -8,13 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 
 import javax.persistence.OneToMany;
-
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Lessors")
 public class Lessor extends User{
 	
+	@OneToOne(mappedBy = "lessor")
 	private User lessorID;	
 	
 	@Column(name = "license_id", columnDefinition = "NUMERIC(15)")
