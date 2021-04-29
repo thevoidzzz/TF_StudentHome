@@ -4,44 +4,41 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 //import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "PaymentProofs")
-@SequenceGenerator(name = "getPaymentProof", initialValue = 1)
 public class PaymentProof {
+	
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "getPaymentProof")
+	
+	//@OneToOne	
+	//@Column(name = "payment_proof_id", columnDefinition = "NUMERIC(4)")
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "getPaymentProof")
-	@Column(name = "payment_proof_id", columnDefinition = "NUMERIC(4)")
 	private Integer id;
 	
 	@Column(name = "payment_proof_initial_date")
 	@Temporal(TemporalType.DATE)
 	private Date paymentProofInitialDate;
 	
+	@Column(name = "payment_price", columnDefinition = "DECIMAL(8,2)")
+	private Float paymentPrice;
+	
 	@OneToOne	
-	//@MapsId
-	@JoinColumn(name = "payment_proof_id")
+	@MapsId	
+	@JoinColumn(name = "id", columnDefinition = "NUMERIC(4)")
 	private Reservation reservation;
 	
 	// --Constructor, Getter y Setter  
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 
 	public Date getPaymentProofInitialDate() {
 		return paymentProofInitialDate;

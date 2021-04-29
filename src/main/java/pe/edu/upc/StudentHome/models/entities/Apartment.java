@@ -28,10 +28,10 @@ public class Apartment {
 	private Integer id;
 	
 	@Column(name = "apartment_description", length = 20)
-	private String description;
+	private String apartmentDescription;
 	
 	@Column(name = "apartment_price", columnDefinition = "DECIMAL(8,2)")
-	private Float price;
+	private Float apartmentPrice;
 	
 	@Column(name = "apartment_initial_date_publication")
 	@Temporal(TemporalType.DATE)
@@ -61,20 +61,20 @@ public class Apartment {
 			this.id = id;
 		}
 
-		public String getDescription() {
-			return description;
+		public String getApartmentDescription() {
+			return apartmentDescription;
 		}
 
-		public void setDescription(String description) {
-			this.description = description;
+		public void setApartmentDescription(String apartmentDescription) {
+			this.apartmentDescription = apartmentDescription;
 		}
 
-		public Float getPrice() {
-			return price;
+		public Float getApartmentPrice() {
+			return apartmentPrice;
 		}
 
-		public void setPrice(Float price) {
-			this.price = price;
+		public void setApartmentPrice(Float apartmentPrice) {
+			this.apartmentPrice = apartmentPrice;
 		}
 
 		public Date getInitialDatePublication() {
@@ -108,7 +108,7 @@ public class Apartment {
 		public void setReservations(List<Reservation> reservations) {
 			this.reservations = reservations;
 		}
-		
+
 		
 	
 }
