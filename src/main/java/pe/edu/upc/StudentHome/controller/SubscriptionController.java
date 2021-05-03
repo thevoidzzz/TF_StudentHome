@@ -33,33 +33,33 @@ public class SubscriptionController {
 
 //metodos especializados
 
-	public String newRegion() {
+	public String newSubscription() {
 		this.setSubscription(new Subscription());
 		return "subscription.xhtml";
 	}
 
 	public void insert() {
 		try {
-			//subscService.insert(subscription);
+			subscService.insert(subscription);
 		} catch (Exception e) {
-			System.out.println("Error al insertar en el controller de región");
+			System.out.println("Error al insertar en el controller de suscripción");
 		}
 	}
 
 	public void list() {
 		try {
-			//listaSuscripciones = subscService.list();
+			listaSuscripciones = subscService.list();
 		} catch (Exception e) {
-			System.out.println("Error al listar en el controller de región");
+			System.out.println("Error al listar en el controller de suscripción");
 		}
 	}
 	
-	public void delete(Subscription re) {
+	public void delete(Subscription su) {
 		try {
-			//subscService.delete(re.getId());
+			subscService.delete(su.getId());
 			this.list();
 		} catch (Exception e) {
-			System.out.println("Error al eliminar en el controller de región");
+			System.out.println("Error al eliminar en el controller de suscripción");
 		}
 	}	
 

@@ -40,7 +40,7 @@ public class RegionController {
 
 	public void insert() {
 		try {
-			//regService.insert(region);
+			regService.insert(region);
 		} catch (Exception e) {
 			System.out.println("Error al insertar en el controller de región");
 		}
@@ -48,7 +48,7 @@ public class RegionController {
 
 	public void list() {
 		try {
-			//listaRegiones = regService.list();
+			listaRegiones = regService.list();
 		} catch (Exception e) {
 			System.out.println("Error al listar en el controller de región");
 		}
@@ -56,7 +56,7 @@ public class RegionController {
 
 	public void delete(Region re) {
 		try {
-			//regService.delete(re.getId());
+			regService.delete(re.getId());
 			this.list();
 		} catch (Exception e) {
 			System.out.println("Error al eliminar en el controller de región");
