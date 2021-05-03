@@ -11,3 +11,5 @@ public interface IRegionService {
     List<Region> list();
 
     public void delete(int idRegion);
+    
+}    

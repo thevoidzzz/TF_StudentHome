@@ -3,53 +3,57 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets"> <ui:composition
-	template="master.xhtml">
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="master.xhtml">
 
 	<ui:define name="title">
-        .:Registro de Regiones:.
+        .:Registro de Suscripciones:.
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Registro de Región</span>
+		<span>Registro de Suscripción</span>
 	</ui:define>
 
 	<ui:define name="content">
 		<h:form>
 
-			<h:outputLabel for="idRegion" value="Código" styleClass="control-label" />
-			<p:inputText autocomplete="off" id="idRegion"
-				styleClass="form-control"
-				value="#{regionController.region.id}"  />
-
-
-
-			<h:outputLabel for="nameRegion" value="Región "
+			<h:outputLabel for="idSubscription" value="Código"
 				styleClass="control-label" />
-			<p:inputText autocomplete="off" id="name"
+			<p:inputText autocomplete="off" id="idSubscription"
 				styleClass="form-control"
-				value="#{regionController.region.name}"
+				value="#{subscriptionController.subscription.id}" />
+
+			<h:outputLabel for="nameSubscription" value="Suscripción"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="name" styleClass="form-control"
+				value="#{subscriptionController.subscription.subscriptionName}"
 				maxlength="30" required="true" />
 
+			<h:outputLabel for="descriptionSubscription" value="Descripción"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="description" styleClass="form-control"
+				value="#{subscriptionController.subscription.subscriptionDescription}"
+				maxlength="30" required="true" />
 
 
 			<br />
 			<p:commandButton value="Grabar"
-				actionListener="#{regionController.insert()}"
+				actionListener="#{subscriptionController.insert()}"
 				styleClass="btn btn-primary" update="@form"
-				action="listRegion?faces-redirect=true" />
-				
-	
-				
+				action="listSubscription?faces-redirect=true" />
+
+
+
 			<p:commandButton value="Cancelar"
-				action="listRegion?faces-redirect=true" immediate="true"
+				action="listSubscription?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
-				
-				
+
+
 		</h:form>
 	</ui:define>
 
 	<ui:define name="footerCont">
 
 	</ui:define>
-</ui:composition> </html>
+</ui:composition>
+</html>

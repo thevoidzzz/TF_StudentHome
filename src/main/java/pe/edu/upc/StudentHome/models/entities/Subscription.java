@@ -6,20 +6,20 @@ package pe.edu.upc.StudentHome.models.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 //import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
 import javax.persistence.Id;
 //import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
+//import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "Subscriptions")
-@SequenceGenerator(name = "getSubscription", initialValue = 1)
+//@SequenceGenerator(name = "getSubscription", initialValue = 1)
 public class Subscription {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "getSubscription")
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "getSubscription")
 	@Column(name = "subscription_id", columnDefinition = "NUMERIC(4)")
 	private Integer id;
 	
@@ -39,7 +39,8 @@ public class Subscription {
 		this.id = id;
 		this.subscriptionName = subscriptionName;
 		this.subscriptionDescription = subscriptionDescription;
-	}	
+	}
+
 	
 	//@ManyToMany(mappedBy = "subscriptions", fetch = FetchType.LAZY)
 	//private List<User> users;
@@ -68,8 +69,8 @@ public class Subscription {
 
 	public void setSubscriptionDescription(String subscriptionDescription) {
 		this.subscriptionDescription = subscriptionDescription;
-	}
-
+	}	
+	
 	
 	
 }

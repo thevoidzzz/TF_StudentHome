@@ -21,14 +21,14 @@
 
 			<div class="row"> <div class="col-sm-4"> <div
 				class="form-group"> <p:commandButton value="Nuevo"
-				action="#{regionController.newRegion()}" styleClass="btn btn-danger"
+				action="#{subscriptionController.newSubscription()}" styleClass="btn btn-danger"
 				ajax="false" /> </div> </div> </div>
 
 
 			<div class="row"> <div class="col-sm-12"> <div
 				class="form-group table-responsive box-table-class"> 
 				<p:dataTable
-				id="lstRegion" var="reg" value="#{regionController.listaRegiones}"
+				id="lstSubscription" var="sub" value="#{subscriptionController.listaSuscripciones}"
 				paginator="true" paginatorPosition="top"
 				rowsPerPageTemplate="10,20,30,40,50" rows="10"
 				styleClass="table table-bordered"
@@ -37,18 +37,22 @@
 
 
 				<p:column headerText="Código">
-					<h:outputText value="#{reg.id}" />
+					<h:outputText value="#{sub.id}" />
 				</p:column>
 
 
 				<p:column headerText="Suscripción">
-					<h:outputText value="#{reg.name}" />
+					<h:outputText value="#{sub.subscriptionName}" />
+				</p:column>
+				
+				<p:column headerText="Descripción">
+					<h:outputText value="#{sub.subscriptionDescription}" />
 				</p:column>
 
 
 				<p:column headerText="Operación">
-					<h:commandLink action="lstRegion" value="Eliminar"
-						actionListener="#{regionController.delete(reg)}" />
+					<h:commandLink action="lstSubscription" value="Eliminar"
+						actionListener="#{subscriptionController.delete(sub)}" />
 				</p:column>
 
 			</p:dataTable> </div> </div>
