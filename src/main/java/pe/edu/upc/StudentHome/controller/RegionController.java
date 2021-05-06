@@ -62,6 +62,22 @@ public class RegionController {
 			System.out.println("Error al eliminar en el controller de región");
 		}
 	}	
+	
+	public void findByName() {
+		try {
+			if(region.getName().isEmpty()) {
+				this.list();
+			}else {
+				listaRegiones = this.regService.findByName(this.getRegion());
+			}
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el controller de región");
+		}
+	}
+	
+	public void clean() {
+		this.init();
+	}
 
 //get y setters
 	

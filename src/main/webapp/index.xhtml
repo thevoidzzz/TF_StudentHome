@@ -1,25 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"> 
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:hi="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="" />
+	<meta name="author" content="" />
 
-<h:head></h:head> 
-<body> 
+	<!-- Bootstrap core CSS -->
+	<h:outputScript name="js/bootstrap.js" />
+	<h:outputScript name="js/bootstrap.min.js" />
+	<h:outputStylesheet name="css/bootstrap.css" />	
 
-<h:outputLabel value="Id" />
-<h:inputText></h:inputText>
-<h:outputLabel value="Región" />
-<h:inputText></h:inputText>
-<h:button value="Grabar"/>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
 
-<p:inputText></p:inputText>
-<p:outputLabel></p:outputLabel>
-<p:commandButton></p:commandButton>
-<p:commandLink></p:commandLink>
-<h:dataTable></h:dataTable>
-<p:dataTable></p:dataTable>
-
-</body> 
+	<title>StudentHome</title>
+	<!-- Custom styles for this template -->
+	<!--<h:outputStylesheet  library="css" name="starter-template.css"/>-->
+</h:head>
+<h:body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand">StudentHome</a>
+		</div>
+		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="index.xhtml">Inicio</a></li>
+				<li><a href="master.xhtml">Listados</a></li>
+				<li><a href="master-reporte.xhtml">Reportes</a></li>
+			</ul>
+		</div>
+		<!--/.nav-collapse -->
+	</div>
+	</nav>
+	<!--main-->
+	<div>
+		<hi:form>
+			<p align="center" class="title-style">StudentHome</p>
+			<div align="center">
+				<hi:graphicImage value="/resources/img/rent.jpg" height="909px"
+					width="1680px"></hi:graphicImage>
+			</div>
+		</hi:form>
+	</div>
+	<ui:insert name="footerCont"></ui:insert>
+</h:body>
 </html>

@@ -3,9 +3,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"> <ui:composition
-	template="master.xhtml">
-
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="master.xhtml">
+	<!-- Bootstrap core CSS -->
+	<h:outputScript name="js/bootstrap.js" />
+	<h:outputStylesheet name="css/bootstrap.css" />
 
 	<ui:define name="title">
         .:Listado de Regiones:.
@@ -19,39 +21,66 @@
 
 		<h:form>
 
-			<div class="row"> <div class="col-sm-4"> <div
-				class="form-group"> <p:commandButton value="Nuevo"
-				action="#{regionController.newRegion()}" styleClass="btn btn-danger"
-				ajax="false" /> </div> </div> </div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="name" value="Búsqueda"
+							styleClass="control-label" />
+						<p:inputText autocomplete="off" id="name"
+							styleClass="form-control" value="#{regionController.region.name}"
+							maxlength="120" />
+					</div>
+				</div>
+
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height: 30px;"></span>
+
+						<p:commandButton value="Limpiar" update="lstRegion"
+							actionListener="#{regionController.clean()}"
+							styleClass="btn btn-default" ajax="false" />
+
+						<p:commandButton value="Buscar" update="lstRegion"
+							actionListener="#{regionController.findByName()}"
+							styleClass="btn btn-default btn-border" ajax="true" />
+
+						<p:commandButton value="Nuevo"
+							action="#{regionController.newRegion()}"
+							styleClass="btn btn-danger" ajax="false" />
+					</div>
+				</div>
+			</div>
 
 
-			<div class="row"> <div class="col-sm-12"> <div
-				class="form-group table-responsive box-table-class"> 
-				<p:dataTable
-				id="lstRegion" var="reg" value="#{regionController.listaRegiones}"
-				paginator="true" paginatorPosition="top"
-				rowsPerPageTemplate="10,20,30,40,50" rows="10"
-				styleClass="table table-bordered"
-				emptyMessage="No existen registros" rowIndexVar="item"
-				style="margin-bottom:0">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstRegion" var="reg"
+							value="#{regionController.listaRegiones}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
 
 
-				<p:column headerText="Código">
-					<h:outputText value="#{reg.id}" />
-				</p:column>
+							<p:column headerText="Código">
+								<h:outputText value="#{reg.id}" />
+							</p:column>
 
 
-				<p:column headerText="Región">
-					<h:outputText value="#{reg.name}" />
-				</p:column>
+							<p:column headerText="Región">
+								<h:outputText value="#{reg.name}" />
+							</p:column>
 
 
-				<p:column headerText="Operación">
-					<h:commandLink action="lstRegion" value="Eliminar"
-						actionListener="#{regionController.delete(reg)}" />
-				</p:column>
+							<p:column headerText="Operación">
+								<h:commandLink action="lstRegion" value="Eliminar"
+									actionListener="#{regionController.delete(reg)}" />
+							</p:column>
 
-			</p:dataTable> </div> </div>
+						</p:dataTable>
+					</div>
+				</div>
 			</div>
 		</h:form>
 	</ui:define>
@@ -59,4 +88,5 @@
 	<ui:define name="footerCont">
 
 	</ui:define>
-</ui:composition> </html>
+</ui:composition>
+</html>

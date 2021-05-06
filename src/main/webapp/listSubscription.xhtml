@@ -5,7 +5,9 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"> <ui:composition
 	template="master.xhtml">
-
+<!-- Bootstrap core CSS -->
+  <h:outputScript name="js/bootstrap.js" />
+  <h:outputStylesheet name="css/bootstrap.css"/>
 
 	<ui:define name="title">
         .:Listado de Suscripciones:.
@@ -19,10 +21,35 @@
 
 		<h:form>
 
-			<div class="row"> <div class="col-sm-4"> <div
-				class="form-group"> <p:commandButton value="Nuevo"
-				action="#{subscriptionController.newSubscription()}" styleClass="btn btn-danger"
-				ajax="false" /> </div> </div> </div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="name" value="Búsqueda"
+							styleClass="control-label" />
+						<p:inputText autocomplete="off" id="name"
+							styleClass="form-control" value="#{subscriptionController.subscription.subscriptionName}"
+							maxlength="120" />
+					</div>
+				</div>
+
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height: 30px;"></span>
+
+						<p:commandButton value="Limpiar" update="lstSubscription"
+							actionListener="#{subscriptionController.clean()}"
+							styleClass="btn btn-default" ajax="false" />
+
+						<p:commandButton value="Buscar" update="lstSubscription"
+							actionListener="#{subscriptionController.findByName()}"
+							styleClass="btn btn-default btn-border" ajax="true" />
+
+						<p:commandButton value="Nuevo"
+							action="#{subscriptionController.newSubscription()}"
+							styleClass="btn btn-danger" ajax="false" />
+					</div>
+				</div>
+			</div>
 
 
 			<div class="row"> <div class="col-sm-12"> <div

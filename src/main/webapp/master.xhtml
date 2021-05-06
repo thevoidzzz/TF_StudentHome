@@ -16,6 +16,9 @@
 		rel='stylesheet' type='text/css' />
 	<link rel="shortcut icon" type="image/x-icon"
 		href="resources/img/favicon.ico" />
+	<!-- Bootstrap core CSS -->
+	<h:outputScript name="js/bootstrap.js" />
+	<h:outputStylesheet name="css/bootstrap.css" />
 	<!-- CSS only -->
 	<h:outputStylesheet name="css/bootstrap.min.css" />
 	<h:outputStylesheet name="css/main_base.css" />
@@ -23,36 +26,46 @@
 	<ui:insert name="headCont"></ui:insert>
 </h:head>
 <h:body>
-	<nav class="navbar navbar-default navbar-fixed-top base_primary"
-		role="banner">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<button class="navbar-toggle" type="button" data-toggle="collapse"
-					data-target=".navbar-collapse">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand"
-					style="display: table; padding-top: 5px; padding-bottom: 5px;"><img
-					src="resources/img/logo.png" alt="" height="50" /></a>
+				<a class="navbar-brand">StudentHome</a>
 			</div>
-
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.xhtml">Inicio</a></li>
+					<li><a href="master.xhtml">Listados</a></li>
+					<li><a href="#contact">Reportes</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
 		</div>
 	</nav>
 	<!--main-->
 	<div class="container base_fondo_fff"
-		style="min-height: 600px; border-radius: 4px; margin-top: 35px;">
+		style="min-height: 600px; border-radius: 4px; margin-top: 80px;">
 		<div class="row">
 			<!--left-->
 			<div class="col-md-3" id="leftCol">
 				<ul class="nav nav-stacked" id="sidebar">
-					<li id="sidebar-1"><a href="panel.xhtml"><i
-							class="icon-home"></i> Inicio</a></li>
-					<li id="sidebar-2"><a href="listRegion.xhtml"><i
+					<li id="sidebar-1"><a href="listRegion.xhtml"><i
 							class="icon-user"></i> Lista de regiones</a></li>
-					<li id="sidebar-3"><a href="listSubscription.xhtml"><i
+					<li id="sidebar-2"><a href="listSubscription.xhtml"><i
 							class="icon-user"></i> Lista de suscripciones</a></li>
+					<li id="sidebar-3"><a href="listApartment.xhtml"><i
+							class="icon-user"></i> Lista de apartamentos</a></li>
+					<li id="sidebar-3"><a href="listProvince.xhtml"><i
+							class="icon-user"></i> Lista de provincias</a></li>
+					<li id="sidebar-4"><a href="listDistrict.xhtml"><i
+							class="icon-user"></i> Lista de distritos</a></li>
+
 
 
 				</ul>

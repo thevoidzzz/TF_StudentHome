@@ -53,4 +53,18 @@ public class RegionDaoImpl implements IRegionDao {
             System.out.println(e.getMessage());
         }
     }
+    
+    @SuppressWarnings("unchecked")
+	@Override
+	public List<Region> findByName(Region reg) {
+		List<Region> lista = new ArrayList<Region>();
+		try {
+			Query q = em.createQuery("from Region r where r.name like ?1");
+			q.setParameter(1, "%" + reg.getName() + "%"); //comodines para buscar que dejan desde el inicio o final
+			lista = (List<Region>) q.getResultList();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return lista;
+	}
 }
