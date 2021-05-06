@@ -12,4 +12,6 @@ public interface IRegionService {
 
     public void delete(int idRegion);
     
+    public List<Region> findByName(Region reg);
+    
 }    

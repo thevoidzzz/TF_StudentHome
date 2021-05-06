@@ -59,4 +59,18 @@ public class SubscriptionDaoImpl implements ISubscriptionDao {
         }
 
     }
+    
+    @SuppressWarnings("unchecked")
+	@Override
+	public List<Subscription> findByName(Subscription sub) {
+		List<Subscription> lista = new ArrayList<Subscription>();
+		try {
+			Query q = em.createQuery("from Region r where r.name like ?1");
+			q.setParameter(1, "%" + sub.getSubscriptionName() + "%"); //comodines para buscar que dejan desde el inicio o final
+			lista = (List<Subscription>) q.getResultList();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return lista;
+	}
 }

@@ -32,4 +32,9 @@ public class SubscriptionServiceImpl implements ISubscriptionService{
     public void delete(int idSubscription) {
         subDao.delete(idSubscription);
     }
+    
+    @Override
+	public List<Subscription> findByName(Subscription sub) {		
+		return subDao.findByName(sub);
+	}
 }

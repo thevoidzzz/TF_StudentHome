@@ -62,6 +62,22 @@ public class SubscriptionController {
 			System.out.println("Error al eliminar en el controller de suscripción");
 		}
 	}	
+	
+	public void findByName() {
+		try {
+			if(subscription.getSubscriptionName().isEmpty()) {
+				this.list();
+			}else {
+				listaSuscripciones = this.subscService.findByName(this.getSubscription());
+			}
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el controller de región");
+		}
+	}
+	
+	public void clean() {
+		this.init();
+	}
 
 //get y setters
 	

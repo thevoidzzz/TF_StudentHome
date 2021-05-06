@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="master.xhtml">
+<!-- Bootstrap core CSS -->
+  <h:outputScript name="js/bootstrap.js" />
+  <h:outputStylesheet name="css/bootstrap.css"/>
+
+	<ui:define name="title">
+        .:Registro de Apartamentos:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Registro de Apartamento</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+
+			<h:outputLabel for="id" value="Código"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="id"
+				styleClass="form-control"
+				value="#{apartmentController.apartment.id}" />
+
+			<h:outputLabel for="nameApartment" value="Apartamento"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="name" styleClass="form-control"
+				value="#{apartmentController.apartment.apartmentName}"
+				maxlength="30" required="true" />
+
+			<h:outputLabel for="descriptionApartment" value="Descripción"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="description" styleClass="form-control"
+				value="#{apartmentController.apartment.apartmentDescription}"
+				maxlength="30" required="true" />
+				
+				<h:outputLabel for="apartmentPrice" value="Precio"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="precio" styleClass="form-control"
+				value="#{apartmentController.apartment.apartmentPrice}"
+				maxlength="30" required="true" />
+				
+				<h:outputLabel for="initialDatePublication" value="Fecha"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="fecha" styleClass="form-control"
+				value="#{apartmentController.apartment.initialDatePublication}"
+				maxlength="30" required="true" />
+
+
+			<br />
+			
+			<p:outputLabel for="cboDistrito" value="Distrito" />
+			<p:selectOneMenu id="cboDistrito"
+				value="#{apartmentController.apartment.district}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{apartmentController.listaDistritos}"
+					var="d" itemLabel="#{d.name}" itemValue="#{d}" />
+			</p:selectOneMenu>
+			<br/>
+			
+			<p:commandButton value="Grabar"
+				actionListener="#{apartmentController.insert()}"
+				styleClass="btn btn-primary" update="@form"
+				action="listApartment?faces-redirect=true" />
+
+
+
+			<p:commandButton value="Cancelar"
+				action="listApartment?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

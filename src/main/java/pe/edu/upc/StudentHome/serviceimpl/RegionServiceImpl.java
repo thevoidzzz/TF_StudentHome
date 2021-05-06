@@ -32,5 +32,10 @@ public class RegionServiceImpl implements IRegionService {
     public void delete(int idRegion) {
         regDao.delete(idRegion);
     }
+    
+    @Override
+	public List<Region> findByName(Region reg) {		
+		return regDao.findByName(reg);
+	}
 
 }
